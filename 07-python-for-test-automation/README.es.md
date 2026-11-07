@@ -1,3 +1,5 @@
+[English](README.md) | **Español**
+
 # Python para automatización de pruebas
 
 **Herramientas:** Python, PyCharm

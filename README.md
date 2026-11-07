@@ -1,52 +1,58 @@
-# TripleTen QA Engineer · David Morales
+**English** | [Español](README.es.md)
 
-Portafolio de pruebas de software del programa **QA Engineer de TripleTen**: 10 sprints y un módulo de pruebas de aplicaciones móviles. Vengo del arte 3D y el desarrollo de videojuegos, y me estoy especializando en QA de videojuegos.
+# QA Engineer Portfolio · David Morales
 
-## Proyecto destacado: Urban Routes
+Software testing portfolio built during the **TripleTen QA Engineer** program: 10 sprints plus a mobile app testing module. I come from 3D art and game development, and I'm specializing in game QA.
 
-Sprints 1 a 3. Pruebas manuales de **Urban Routes**, una aplicación web para pedir taxi: flujo funcional, red y consola, interfaz contra el diseño en dos navegadores, y validación de un formulario de pago.
+## Featured project: Urban Routes
+
+Sprints 1 to 3. Manual testing of **Urban Routes**, a ride-hailing web app: functional flow, network and console checks, UI against the design in two browsers, and validation of a payment form.
 
 | | |
 |---|---|
-| Verificaciones ejecutadas | **81** |
-| Verificaciones fallidas | **26** |
-| Bugs documentados | **21** (1 crítico, 1 mayor, 11 de prioridad alta, 8 de prioridad baja) |
-| Entornos | Chrome 800×600 y Firefox 1920×1080 |
+| Checks executed | **81** |
+| Checks failed | **26** |
+| Bugs reported | **21** (1 critical, 1 major, 11 high priority, 8 low priority) |
+| Environments | Chrome 800×600 and Firefox 1920×1080 |
 
-**Bugs destacados**
+**Highlighted bugs**
 
-- **URB-02 · Crítico.** La pantalla de espera del vehículo no se cierra con el botón X y la consola registra `Uncaught Error: Unimplemented method at onClick`.
-- **URB-01 · Mayor.** Al calcular la ruta, la tarifa Shine responde `503` en `/api/v1/tariffs/price`. La interfaz no lo muestra; solo aparece en la pestaña Network.
-- **URTCBG-04 · Alta.** El campo Número de tarjeta acepta letras, no muestra error y habilita el botón Agregar.
+- **URB-02 · Critical.** The vehicle waiting screen does not close with the X button, and the console logs `Uncaught Error: Unimplemented method at onClick`.
+- **URB-01 · Major.** When the route is calculated, the Shine tariff returns `503` from `/api/v1/tariffs/price`. The UI hides it; it only shows up in the Network tab.
+- **URTCBG-04 · High.** The card number field accepts letters, shows no error and enables the Add button.
 
-**Técnicas:** casos de prueba paso a paso, checklist de interfaz, pruebas entre navegadores, particiones de equivalencia, análisis de valores límite y revisión de Network y Console en Chrome DevTools.
+**Techniques:** step-by-step test cases, UI checklist, cross-browser testing, equivalence partitioning, boundary value analysis, and Network and Console review in Chrome DevTools.
 
-➡️ [Detalle del proyecto](01-03-urban-routes-qa-manual/README.md) · [Hoja con todos los casos y bug reports](https://docs.google.com/spreadsheets/d/1gI-mDF3BTTqg-HQ6AgfDhJoS6o1kyaI-cY1NLv57GcE/edit)
+➡️ [Project details](01-03-urban-routes-manual-qa/README.md) · [Spreadsheet with every test case and bug report](https://docs.google.com/spreadsheets/d/1gI-mDF3BTTqg-HQ6AgfDhJoS6o1kyaI-cY1NLv57GcE/edit)
 
-## Contenido
+## Contents
 
-| Carpeta | Tema | Herramientas | Estado |
+| Folder | Topic | Tools | Status |
 |---|---|---|---|
-| [01-03-urban-routes-qa-manual](01-03-urban-routes-qa-manual/) | QA manual web: casos de prueba, checklist de interfaz y formularios | Chrome DevTools, Google Sheets | ✅ Completo |
-| [04-pruebas-api](04-pruebas-api/) | Pruebas de API | Postman | ⏳ En curso |
-| [06-bases-de-datos](06-bases-de-datos/) | Fundamentos de bases de datos | SQL, consola | ⏳ Pendiente |
-| [07-python-automatizacion](07-python-automatizacion/) | Python para automatización de pruebas | Python, PyCharm | ⏳ Pendiente |
-| [08-entorno-automatizacion](08-entorno-automatizacion/) | Entorno para automatización de pruebas | Pytest, Git | ⏳ Pendiente |
-| [09-automatizacion-web](09-automatizacion-web/) | Automatización de pruebas de aplicaciones web | Selenium WebDriver | ⏳ Pendiente |
-| [10-proyecto-final](10-proyecto-final/) | Proyecto final | Por definir | ⏳ Pendiente |
-| [modulo-pruebas-moviles](modulo-pruebas-moviles/) | Pruebas de aplicaciones móviles | Android Studio | ⏳ Pendiente |
-| [plantillas](plantillas/) | Plantillas de caso de prueba y bug report | Markdown | ✅ |
+| [01-03-urban-routes-manual-qa](01-03-urban-routes-manual-qa/) | Manual web QA: test cases, UI checklist and forms | Chrome DevTools, Google Sheets | ✅ Done |
+| [04-api-testing](04-api-testing/) | API testing | Postman | ⏳ In progress |
+| [06-databases](06-databases/) | Database fundamentals | SQL, command line | ⏳ Pending |
+| [07-python-for-test-automation](07-python-for-test-automation/) | Python for test automation | Python, PyCharm | ⏳ Pending |
+| [08-test-automation-environment](08-test-automation-environment/) | Test automation environment | Pytest, Git | ⏳ Pending |
+| [09-web-test-automation](09-web-test-automation/) | Web app test automation | Selenium WebDriver | ⏳ Pending |
+| [10-final-project](10-final-project/) | Final project | To be defined | ⏳ Pending |
+| [mobile-app-testing](mobile-app-testing/) | Mobile app testing | Android Studio | ⏳ Pending |
+| [templates](templates/) | Test case and bug report templates | Markdown | ✅ |
 
-El sprint 5 es el curso de preparación de carrera, sin proyecto de pruebas.
+Sprint 5 is the career preparation course and has no testing project.
 
-## Otros proyectos
+## Other projects
 
-- **Suppah Soccah:** plan de pruebas de un juego 3v3 en Roblox que estoy desarrollando: regresión funcional, anti-cheat, telemetría y Art QA. En preparación.
+- **Suppah Soccah:** test plan for a 3v3 Roblox game I'm developing: functional regression, anti-cheat, telemetry and art QA. In progress.
 
-## Herramientas
+## Tools
 
 Chrome DevTools · Postman · Jira · Google Sheets · SQL · Python · Pytest · Selenium · Git · Android Studio · Unreal Engine · Unity
 
-## Contacto
+## Languages
+
+English (B2) · Spanish (native)
+
+## Contact
 
 [LinkedIn: David Morales](https://www.linkedin.com/in/3dmcasanova/)

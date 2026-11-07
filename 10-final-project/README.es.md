@@ -1,3 +1,5 @@
+[English](README.md) | **Español**
+
 # Proyecto final
 
 **Herramientas:** Por definir

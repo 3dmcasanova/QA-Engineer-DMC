@@ -1,3 +1,5 @@
+[English](README.md) | **Español**
+
 # Entorno para automatización de pruebas
 
 **Herramientas:** Pytest, Git, GitHub

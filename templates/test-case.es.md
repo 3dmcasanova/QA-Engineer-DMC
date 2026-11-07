@@ -1,3 +1,5 @@
+[English](test-case.md) | **Español**
+
 # Caso de prueba
 
 | Campo | Contenido |

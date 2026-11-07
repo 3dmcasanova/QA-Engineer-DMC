@@ -1,3 +1,5 @@
+[English](bug-report.md) | **Español**
+
 # Bug report
 
 | Campo | Contenido |

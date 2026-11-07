@@ -1,3 +1,5 @@
+[English](README.md) | **Español**
+
 # Urban Routes · QA manual web
 
 Urban Routes es la aplicación web de práctica del programa QA Engineer de TripleTen: el usuario ingresa origen y destino, elige un modo de transporte y una tarifa, agrega un método de pago y pide el taxi.
@@ -58,7 +60,7 @@ Valores límite del campo Código:
 | Longitud 1 y 3 | `1`, `123` | Rechazar | ❌ Acepta |
 | Letras y símbolos | `AA`, `!@` | Rechazar | ❌ Acepta |
 
-El campo Número de tarjeta muestra el mismo patrón: acepta 5, 11 y 13 dígitos, letras, símbolos y espacios manuales, y habilita el botón Agregar en todos esos casos. Por eso documenté 12 bugs (11 de prioridad alta) y recomendé una ronda de pruebas más exhaustiva sobre el flujo de pago.
+El campo Número de tarjeta muestra el mismo patrón: acepta 5, 11 y 13 dígitos, letras, símbolos y espacios manuales, y habilita el botón Agregar en todos esos casos. Documenté 12 bugs (11 de prioridad alta) y recomendé una ronda de pruebas más exhaustiva sobre el flujo de pago.
 
 ## Lo que demuestra este proyecto
 

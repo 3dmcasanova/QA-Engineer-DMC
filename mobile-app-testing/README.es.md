@@ -1,3 +1,5 @@
+[English](README.md) | **Español**
+
 # Pruebas de aplicaciones móviles
 
 **Herramientas:** Android Studio

@@ -1,3 +1,5 @@
+[English](README.md) | **Español**
+
 # Automatización de pruebas de aplicaciones web
 
 **Herramientas:** Selenium WebDriver

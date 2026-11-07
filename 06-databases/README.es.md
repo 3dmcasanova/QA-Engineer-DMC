@@ -1,4 +1,6 @@
-# Fundamentos de bases de datos
+[English](README.md) | **Español**
+
+# Fundamentos de las bases de datos
 
 **Herramientas:** SQL, consola
 

@@ -4,7 +4,7 @@ Portafolio de pruebas de software del programa **QA Engineer de TripleTen**: 10 
 
 ## Proyecto destacado: Urban Routes
 
-Pruebas manuales de **Urban Routes**, una aplicación web para pedir taxi: flujo funcional, red y consola, interfaz contra el diseño en dos navegadores, y validación de un formulario de pago.
+Sprints 1 a 3. Pruebas manuales de **Urban Routes**, una aplicación web para pedir taxi: flujo funcional, red y consola, interfaz contra el diseño en dos navegadores, y validación de un formulario de pago.
 
 | | |
 |---|---|
@@ -46,3 +46,7 @@ El sprint 5 es el curso de preparación de carrera, sin proyecto de pruebas.
 ## Herramientas
 
 Chrome DevTools · Postman · Jira · Google Sheets · SQL · Python · Pytest · Selenium · Git · Android Studio · Unreal Engine · Unity
+
+## Contacto
+
+[LinkedIn: David Morales](https://www.linkedin.com/in/3dmcasanova/)

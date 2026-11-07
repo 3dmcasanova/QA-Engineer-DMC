@@ -6,14 +6,14 @@ Todo el trabajo está en una sola hoja de cálculo: [ver la hoja completa](https
 
 ## Resultados
 
-| Parte | Ejecutadas | Aprobadas | Fallidas | Bugs |
+| Sprint | Ejecutadas | Aprobadas | Fallidas | Bugs |
 |---|---|---|---|---|
 | 1 · Funcional, red y consola | 11 casos | 9 | 2 | 2 |
 | 2 · Checklist de interfaz | 48 verificaciones (24 × 2 entornos) | 36 | 12 | 7 |
 | 3 · Formulario de tarjeta | 22 casos | 10 | 12 | 12 |
 | **Total** | **81** | **55** | **26** | **21** |
 
-## Parte 1 · Flujo de pedido y respuestas del servidor
+## Sprint 1 · Flujo de pedido y respuestas del servidor
 
 Recorrí el flujo principal (dirección, ruta, modos Óptimo, Flash y Personal, verificación del teléfono con código SMS, mensaje al conductor y pedido) revisando también Network y Console en Chrome DevTools.
 
@@ -24,7 +24,7 @@ Recorrí el flujo principal (dirección, ruta, modos Óptimo, Flash y Personal, 
 | URB-01 | La tarifa Shine responde `503` en `/api/v1/tariffs/price` al calcular la ruta | Mayor |
 | URB-02 | La pantalla de espera no se cierra con el botón X; la consola muestra `Uncaught Error: Unimplemented method at onClick` | Crítico |
 
-## Parte 2 · Interfaz contra el diseño en dos entornos
+## Sprint 2 · Interfaz contra el diseño en dos entornos
 
 Comparé la pantalla de reserva con el diseño en 24 puntos, en **Chrome 800×600** y **Firefox 1920×1080**. Cada entorno falla en puntos distintos: Chrome recorta y superpone elementos a baja resolución, y Firefox recorta el ícono de pago.
 
@@ -42,7 +42,7 @@ Comparé la pantalla de reserva con el diseño en 24 puntos, en **Chrome 800×60
 
 Todos con prioridad baja: son diferencias visuales que no bloquean el pedido.
 
-## Parte 3 · Validación del formulario de tarjeta
+## Sprint 3 · Validación del formulario de tarjeta
 
 Diseñé 20 escenarios con **particiones de equivalencia** y **análisis de valores límite** para los campos Número de tarjeta (12 dígitos) y Código (2 dígitos, de 01 a 99), y los convertí en 22 casos de prueba.
 

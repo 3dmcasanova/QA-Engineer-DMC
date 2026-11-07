@@ -51,7 +51,7 @@ Chrome DevTools · Postman · Jira · Google Sheets · SQL · Python · Pytest �
 
 ## Languages
 
-English (B2) · Spanish (native)
+English ([EF SET certificate](https://cert.efset.org/en/goUbJe)) · Spanish (native)
 
 ## Contact
 

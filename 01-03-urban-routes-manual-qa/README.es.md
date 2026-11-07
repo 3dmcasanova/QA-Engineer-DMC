@@ -4,7 +4,7 @@
 
 Urban Routes es la aplicación web de práctica del programa QA Engineer de TripleTen: el usuario ingresa origen y destino, elige un modo de transporte y una tarifa, agrega un método de pago y pide el taxi.
 
-Todo el trabajo está en una sola hoja de cálculo: [ver la hoja completa](https://docs.google.com/spreadsheets/d/1gI-mDF3BTTqg-HQ6AgfDhJoS6o1kyaI-cY1NLv57GcE/edit).
+Todo el trabajo está en una sola hoja de cálculo: [ver la hoja completa](https://docs.google.com/spreadsheets/d/1CdvvxNiFTvGbF5EXkdze9hxSYIwIRcebiG0vghuJWa0/edit).
 
 ## Resultados
 
@@ -19,7 +19,7 @@ Todo el trabajo está en una sola hoja de cálculo: [ver la hoja completa](https
 
 Recorrí el flujo principal (dirección, ruta, modos Óptimo, Flash y Personal, verificación del teléfono con código SMS, mensaje al conductor y pedido) revisando también Network y Console en Chrome DevTools.
 
-[Casos de prueba](https://docs.google.com/spreadsheets/d/1gI-mDF3BTTqg-HQ6AgfDhJoS6o1kyaI-cY1NLv57GcE/edit#gid=688606946) · [Bug reports](https://docs.google.com/spreadsheets/d/1gI-mDF3BTTqg-HQ6AgfDhJoS6o1kyaI-cY1NLv57GcE/edit#gid=2029093293)
+[Casos de prueba](https://docs.google.com/spreadsheets/d/1CdvvxNiFTvGbF5EXkdze9hxSYIwIRcebiG0vghuJWa0/edit#gid=688606946) · [Bug reports](https://docs.google.com/spreadsheets/d/1CdvvxNiFTvGbF5EXkdze9hxSYIwIRcebiG0vghuJWa0/edit#gid=2029093293)
 
 | ID | Bug | Gravedad |
 |---|---|---|
@@ -30,7 +30,7 @@ Recorrí el flujo principal (dirección, ruta, modos Óptimo, Flash y Personal, 
 
 Comparé la pantalla de reserva con el diseño en 24 puntos, en **Chrome 800×600** y **Firefox 1920×1080**. Cada entorno falla en puntos distintos: Chrome recorta y superpone elementos a baja resolución, y Firefox recorta el ícono de pago.
 
-[Checklist](https://docs.google.com/spreadsheets/d/1gI-mDF3BTTqg-HQ6AgfDhJoS6o1kyaI-cY1NLv57GcE/edit#gid=1506116036) · [Bug reports](https://docs.google.com/spreadsheets/d/1gI-mDF3BTTqg-HQ6AgfDhJoS6o1kyaI-cY1NLv57GcE/edit#gid=719725667)
+[Checklist](https://docs.google.com/spreadsheets/d/1CdvvxNiFTvGbF5EXkdze9hxSYIwIRcebiG0vghuJWa0/edit#gid=1506116036) · [Bug reports](https://docs.google.com/spreadsheets/d/1CdvvxNiFTvGbF5EXkdze9hxSYIwIRcebiG0vghuJWa0/edit#gid=719725667)
 
 | ID | Bug | Entorno | Evidencia |
 |---|---|---|---|
@@ -48,7 +48,7 @@ Todos con prioridad baja: son diferencias visuales que no bloquean el pedido.
 
 Diseñé 20 escenarios con **particiones de equivalencia** y **análisis de valores límite** para los campos Número de tarjeta (12 dígitos) y Código (2 dígitos, de 01 a 99), y los convertí en 22 casos de prueba.
 
-[Escenarios de validación](https://docs.google.com/spreadsheets/d/1gI-mDF3BTTqg-HQ6AgfDhJoS6o1kyaI-cY1NLv57GcE/edit#gid=1579365076) · [Casos de prueba](https://docs.google.com/spreadsheets/d/1gI-mDF3BTTqg-HQ6AgfDhJoS6o1kyaI-cY1NLv57GcE/edit#gid=1057185272) · [Bug reports](https://docs.google.com/spreadsheets/d/1gI-mDF3BTTqg-HQ6AgfDhJoS6o1kyaI-cY1NLv57GcE/edit#gid=328919447)
+[Escenarios de validación](https://docs.google.com/spreadsheets/d/1CdvvxNiFTvGbF5EXkdze9hxSYIwIRcebiG0vghuJWa0/edit#gid=1579365076) · [Casos de prueba](https://docs.google.com/spreadsheets/d/1CdvvxNiFTvGbF5EXkdze9hxSYIwIRcebiG0vghuJWa0/edit#gid=1057185272) · [Bug reports](https://docs.google.com/spreadsheets/d/1CdvvxNiFTvGbF5EXkdze9hxSYIwIRcebiG0vghuJWa0/edit#gid=328919447)
 
 Valores límite del campo Código:
 

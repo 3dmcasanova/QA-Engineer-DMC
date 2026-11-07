@@ -23,7 +23,7 @@ Sprints 1 a 3. Pruebas manuales de **Urban Routes**, una aplicación web para pe
 
 **Técnicas:** casos de prueba paso a paso, checklist de interfaz, pruebas entre navegadores, particiones de equivalencia, análisis de valores límite y revisión de Network y Console en Chrome DevTools.
 
-➡️ [Detalle del proyecto](01-03-urban-routes-manual-qa/README.es.md) · [Hoja con todos los casos y bug reports](https://docs.google.com/spreadsheets/d/1gI-mDF3BTTqg-HQ6AgfDhJoS6o1kyaI-cY1NLv57GcE/edit)
+➡️ [Detalle del proyecto](01-03-urban-routes-manual-qa/README.es.md) · [Hoja en español con todos los casos y bug reports](https://docs.google.com/spreadsheets/d/1CdvvxNiFTvGbF5EXkdze9hxSYIwIRcebiG0vghuJWa0/edit)
 
 ## Contenido
 
@@ -51,7 +51,7 @@ Chrome DevTools · Postman · Jira · Google Sheets · SQL · Python · Pytest �
 
 ## Idiomas
 
-Español (nativo) · Inglés (B2)
+Español (nativo) · Inglés ([certificado EF SET](https://cert.efset.org/en/goUbJe))
 
 ## Contacto
 

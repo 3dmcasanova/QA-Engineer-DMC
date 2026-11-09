@@ -12,14 +12,14 @@ Sprints 1 a 3. Pruebas manuales de **Urban Routes**, una aplicación web para pe
 |---|---|
 | Verificaciones ejecutadas | **81** |
 | Verificaciones fallidas | **26** |
-| Bugs documentados | **21** (1 crítico, 1 mayor, 11 de prioridad alta, 8 de prioridad baja) |
+| Bugs documentados | **21** · gravedad (sprint 1): 1 crítico, 1 mayor · prioridad (sprints 2 y 3): 11 alta, 8 baja |
 | Entornos | Chrome 800×600 y Firefox 1920×1080 |
 
 **Bugs destacados**
 
 - **URB-02 · Crítico.** La pantalla de espera del vehículo no se cierra con el botón X y la consola registra `Uncaught Error: Unimplemented method at onClick`.
 - **URB-01 · Mayor.** Al calcular la ruta, la tarifa Shine responde `503` en `/api/v1/tariffs/price`. La interfaz no lo muestra; solo aparece en la pestaña Network.
-- **URTCBG-04 · Alta.** El campo Número de tarjeta acepta letras, no muestra error y habilita el botón Agregar.
+- **URTCBG-04 · Prioridad alta.** El campo Número de tarjeta acepta letras, no muestra error y habilita el botón Agregar.
 
 **Técnicas:** casos de prueba paso a paso, checklist de interfaz, pruebas entre navegadores, particiones de equivalencia, análisis de valores límite y revisión de Network y Console en Chrome DevTools.
 
@@ -33,16 +33,16 @@ Sprint 4. Pruebas de la API de **Urban Grocers**, un servicio de entrega de supe
 |---|---|
 | Casos ejecutados | **46** |
 | Casos fallidos | **26** |
-| Bugs documentados | **26** (5 críticos, 10 de severidad alta, 10 media y 1 baja) |
+| Bugs documentados | **26** (5 críticos, 10 mayores, 10 menores y 1 trivial) |
 | Endpoints | `/api/v1/grocery-bundles/{id}/products`, `/speedy/v1/calculate`, `/api/v1/orders` |
 
 **Bugs destacados**
 
-- **UG-1-BUG-08 · Crítica.** Enviar `"productId": "Twelve"` responde `500` (`invalid input syntax for type integer`) y todas las peticiones posteriores a ese paquete fallan, incluso las válidas.
-- **UG-2-BUG-01 · Alta.** Una entrega a las 22:00, fuera de horario, responde `isItPossibleToDeliver: true`. El código es `200`; el bug solo se ve en el body.
-- **UG-3-BUG-02 · Alta.** Borrar un carrito existente con un token válido responde `404` "Cart with id=2 not found".
+- **UG-1-BUG-08 · Crítico.** Enviar `"productId": "Twelve"` responde `500` (`invalid input syntax for type integer`) y todas las peticiones posteriores a ese paquete fallan, incluso las válidas.
+- **UG-2-BUG-01 · Mayor.** Una entrega a las 22:00, fuera de horario, responde `isItPossibleToDeliver: true`. El código es `200`; el bug solo se ve en el body.
+- **UG-3-BUG-02 · Mayor.** Borrar un carrito existente con un token válido responde `404` "Cart with id=2 not found".
 
-**Técnicas:** clases de equivalencia, análisis de valores límite, escenarios positivos y negativos, peticiones con y sin autorización, y validación del body de la respuesta.
+**Técnicas:** clases de equivalencia, análisis de valores límite, escenarios positivos y negativos, peticiones con y sin autorización, validación del body de la respuesta y comprobaciones automáticas con tests de Postman y Newman.
 
 ➡️ [Detalle del proyecto](04-api-testing/README.es.md) · [Hoja en español con todos los casos y bug reports](https://docs.google.com/spreadsheets/d/1Acz0HfCy_edp4G604z_HCaaMaRX2kvuu_1aAvDZB4Mw/edit)
 
@@ -51,16 +51,10 @@ Sprint 4. Pruebas de la API de **Urban Grocers**, un servicio de entrega de supe
 | Carpeta | Tema | Herramientas | Estado |
 |---|---|---|---|
 | [01-03-urban-routes-manual-qa](01-03-urban-routes-manual-qa/README.es.md) | QA manual web: casos de prueba, checklist de interfaz y formularios | Chrome DevTools, Google Sheets | ✅ Completo |
-| [04-api-testing](04-api-testing/README.es.md) | Pruebas de API: paquetes de productos, entregas y carrito | Postman, Swagger, Google Sheets | ✅ Completo |
-| [06-databases](06-databases/README.es.md) | Fundamentos de bases de datos | SQL, consola | ⏳ Pendiente |
-| [07-python-for-test-automation](07-python-for-test-automation/README.es.md) | Python para automatización de pruebas | Python, PyCharm | ⏳ Pendiente |
-| [08-test-automation-environment](08-test-automation-environment/README.es.md) | Entorno para automatización de pruebas | Pytest, Git | ⏳ Pendiente |
-| [09-web-test-automation](09-web-test-automation/README.es.md) | Automatización de pruebas de aplicaciones web | Selenium WebDriver | ⏳ Pendiente |
-| [10-final-project](10-final-project/README.es.md) | Proyecto final | Por definir | ⏳ Pendiente |
-| [mobile-app-testing](mobile-app-testing/README.es.md) | Pruebas de aplicaciones móviles | Android Studio | ⏳ Pendiente |
+| [04-api-testing](04-api-testing/README.es.md) | Pruebas de API: paquetes de productos, entregas y carrito | Postman, Newman, Swagger, Google Sheets | ✅ Completo |
 | [templates](templates/README.es.md) | Plantillas de caso de prueba y bug report | Markdown | ✅ |
 
-El sprint 5 es el curso de preparación de carrera, sin proyecto de pruebas.
+**Próximamente:** SQL, Python con Pytest, automatización web con Selenium, pruebas de aplicaciones móviles y un proyecto final. Cada uno se agregará aquí al completarlo.
 
 ## Otros proyectos
 

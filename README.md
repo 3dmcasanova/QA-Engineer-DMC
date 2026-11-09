@@ -12,14 +12,14 @@ Sprints 1 to 3. Manual testing of **Urban Routes**, a ride-hailing web app: func
 |---|---|
 | Checks executed | **81** |
 | Checks failed | **26** |
-| Bugs reported | **21** (1 critical, 1 major, 11 high priority, 8 low priority) |
+| Bugs reported | **21** · severity (sprint 1): 1 critical, 1 major · priority (sprints 2 and 3): 11 high, 8 low |
 | Environments | Chrome 800×600 and Firefox 1920×1080 |
 
 **Highlighted bugs**
 
 - **URB-02 · Critical.** The vehicle waiting screen does not close with the X button, and the console logs `Uncaught Error: Unimplemented method at onClick`.
 - **URB-01 · Major.** When the route is calculated, the Shine tariff returns `503` from `/api/v1/tariffs/price`. The UI hides it; it only shows up in the Network tab.
-- **URTCBG-04 · High.** The card number field accepts letters, shows no error and enables the Add button.
+- **URTCBG-04 · High priority.** The card number field accepts letters, shows no error and enables the Add button.
 
 **Techniques:** step-by-step test cases, UI checklist, cross-browser testing, equivalence partitioning, boundary value analysis, and Network and Console review in Chrome DevTools.
 
@@ -33,16 +33,16 @@ Sprint 4. API testing of **Urban Grocers**, a grocery delivery API, in Postman: 
 |---|---|
 | Test cases executed | **46** |
 | Test cases failed | **26** |
-| Bugs reported | **26** (5 critical, 10 high, 10 medium, 1 low) |
+| Bugs reported | **26** (5 critical, 10 major, 10 minor, 1 trivial) |
 | Endpoints | `/api/v1/grocery-bundles/{id}/products`, `/speedy/v1/calculate`, `/api/v1/orders` |
 
 **Highlighted bugs**
 
 - **UG-1-BUG-08 · Critical.** Sending `"productId": "Twelve"` returns `500` (`invalid input syntax for type integer`), and every later request to that bundle fails, even valid ones.
-- **UG-2-BUG-01 · High.** A delivery at 22:00, outside business hours, returns `isItPossibleToDeliver: true`. The status code is `200`; the bug is only in the body.
-- **UG-3-BUG-02 · High.** Deleting an existing cart with a valid token returns `404` "Cart with id=2 not found".
+- **UG-2-BUG-01 · Major.** A delivery at 22:00, outside business hours, returns `isItPossibleToDeliver: true`. The status code is `200`; the bug is only in the body.
+- **UG-3-BUG-02 · Major.** Deleting an existing cart with a valid token returns `404` "Cart with id=2 not found".
 
-**Techniques:** equivalence classes, boundary value analysis, positive and negative scenarios, requests with and without authorization, and response body validation.
+**Techniques:** equivalence classes, boundary value analysis, positive and negative scenarios, requests with and without authorization, response body validation, and automated checks with Postman tests and Newman.
 
 ➡️ [Project details](04-api-testing/README.md) · [Spreadsheet with every test case and bug report](https://docs.google.com/spreadsheets/d/1AIelYIYvlfqz0BGgRB3tkbC1-ZJSi9gmikdd0O0Wuzo/edit)
 
@@ -51,16 +51,10 @@ Sprint 4. API testing of **Urban Grocers**, a grocery delivery API, in Postman: 
 | Folder | Topic | Tools | Status |
 |---|---|---|---|
 | [01-03-urban-routes-manual-qa](01-03-urban-routes-manual-qa/) | Manual web QA: test cases, UI checklist and forms | Chrome DevTools, Google Sheets | ✅ Done |
-| [04-api-testing](04-api-testing/) | API testing: product bundles, delivery and shopping cart | Postman, Swagger, Google Sheets | ✅ Done |
-| [06-databases](06-databases/) | Database fundamentals | SQL, command line | ⏳ Pending |
-| [07-python-for-test-automation](07-python-for-test-automation/) | Python for test automation | Python, PyCharm | ⏳ Pending |
-| [08-test-automation-environment](08-test-automation-environment/) | Test automation environment | Pytest, Git | ⏳ Pending |
-| [09-web-test-automation](09-web-test-automation/) | Web app test automation | Selenium WebDriver | ⏳ Pending |
-| [10-final-project](10-final-project/) | Final project | To be defined | ⏳ Pending |
-| [mobile-app-testing](mobile-app-testing/) | Mobile app testing | Android Studio | ⏳ Pending |
+| [04-api-testing](04-api-testing/) | API testing: product bundles, delivery and shopping cart | Postman, Newman, Swagger, Google Sheets | ✅ Done |
 | [templates](templates/) | Test case and bug report templates | Markdown | ✅ |
 
-Sprint 5 is the career preparation course and has no testing project.
+**Coming next:** SQL, Python with Pytest, web automation with Selenium, mobile app testing and a final project. Each one will be added here when it's done.
 
 ## Other projects
 

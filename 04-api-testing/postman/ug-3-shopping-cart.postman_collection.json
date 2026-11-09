@@ -1,0 +1,482 @@
+{
+  "info": {
+    "_postman_id": "a5039a33-e4d9-542d-9e4b-c5d07e8e8fc0",
+    "name": "Urban Grocers · UG-3 Shopping cart",
+    "description": "Urban Grocers API · TripleTen QA Engineer, Sprint 4. Test names that start with a bug ID (for example UG-1-BUG-01) are expected to fail until that bug is fixed. TC-08 creates and deletes its own cart.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Setup · Create a user and save the auth token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}api/v1/users",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Tester\",\n  \"phone\": \"+10005553535\",\n  \"address\": \"8042 Lancaster Ave.Hamburg, NY\",\n  \"email\": \"tester@example.com\",\n  \"comment\": \"QA portfolio run\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Setup · Status code is 201\", () => pm.response.to.have.status(201));",
+              "pm.collectionVariables.set(\"auth_token\", pm.response.json().authToken);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-3-TC-01 · Create a cart",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}api/v1/orders",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productsList\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 2\n    },\n    {\n      \"productId\": 5,\n      \"quantity\": 2\n    },\n    {\n      \"productId\": 3,\n      \"quantity\": 1\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-3-TC-01 · Status code is 201\", () => pm.response.to.have.status(201));",
+              "const created = pm.response.json();",
+              "pm.collectionVariables.set(\"order_id\", created.orderId ?? created.id);",
+              "pm.test(\"UG-3-TC-01 · The response includes the order ID\", () => pm.expect(created.orderId ?? created.id).to.exist);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-3-TC-02 · Missing quantity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}api/v1/orders",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productsList\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 2\n    },\n    {\n      \"productId\": 5,\n      \"quantity\": 2\n    },\n    {\n      \"productId\": 3\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-3-TC-02 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-3-TC-03 · productsList without an array",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}api/v1/orders",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productsList\": {\n    \"productId\": 1,\n    \"quantity\": 2\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-3-TC-03 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-3-TC-04 · Add items to the cart",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}api/v1/orders/{{order_id}}",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productsList\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 2\n    },\n    {\n      \"productId\": 5,\n      \"quantity\": 2\n    },\n    {\n      \"productId\": 3,\n      \"quantity\": 1\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-3-BUG-01 · Status code is 200\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-3-TC-05 · Add items to a non-existent cart",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}api/v1/orders/9999",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productsList\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 2\n    },\n    {\n      \"productId\": 5,\n      \"quantity\": 2\n    },\n    {\n      \"productId\": 3,\n      \"quantity\": 1\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-3-TC-05 · Status code is 404\", () => pm.response.to.have.status(404));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-3-TC-06 · View the cart",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": "{{base_URL}}api/v1/orders/{{order_id}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-3-TC-06 · Status code is 200\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-3-TC-07 · View the cart without authorization",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_URL}}api/v1/orders/{{order_id}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-3-TC-07 · Status code is 401\", () => pm.response.to.have.status(401));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-3-TC-08 · Delete the cart",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": "{{base_URL}}api/v1/orders/{{delete_order_id}}"
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// TC-08 deletes its own cart, so the other cases keep working with the main one.",
+              "pm.sendRequest({",
+              "    url: pm.collectionVariables.get(\"base_URL\") + \"api/v1/orders\",",
+              "    method: \"POST\",",
+              "    header: { \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer \" + pm.collectionVariables.get(\"auth_token\") },",
+              "    body: { mode: \"raw\", raw: JSON.stringify({ productsList: [{ productId: 1, quantity: 2 }, { productId: 5, quantity: 2 }, { productId: 3, quantity: 1 }] }) }",
+              "}, (err, res) => {",
+              "    if (err || res.code !== 201) {",
+              "        console.warn(\"Could not create a cart to delete\", err || res.code);",
+              "        return;",
+              "    }",
+              "    const b = res.json();",
+              "    pm.collectionVariables.set(\"delete_order_id\", b.orderId ?? b.id);",
+              "});"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-3-BUG-02 · Status code is 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"UG-3-BUG-02 · The body is {\\\"ok\\\": true}\", () => pm.expect(pm.response.json().ok).to.eql(true));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-3-TC-09 · Delete a non-existent cart",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": "{{base_URL}}api/v1/orders/9999"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-3-TC-09 · Status code is 404\", () => pm.response.to.have.status(404));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-3-TC-10 · Complete the order",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": "{{base_URL}}api/v1/orders/{{order_id}}/complete"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-3-TC-10 · Status code is 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"UG-3-TC-10 · The body is {\\\"ok\\\": true}\", () => pm.expect(pm.response.json().ok).to.eql(true));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-3-TC-11 · Complete the order without authorization",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": "{{base_URL}}api/v1/orders/{{order_id}}/complete"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-3-TC-11 · Status code is 401\", () => pm.response.to.have.status(401));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-3-TC-12 · Exploratory: Invalid productIds",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}api/v1/orders",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productsList\": [\n    {\n      \"productId\": 999998,\n      \"quantity\": 2\n    },\n    {\n      \"productId\": 999997,\n      \"quantity\": 2\n    },\n    {\n      \"productId\": 999996,\n      \"quantity\": 1\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-3-TC-12 · Status code is 409\", () => pm.response.to.have.status(409));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-3-TC-13 · Exploratory: Invalid quantities",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}api/v1/orders",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productsList\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 999999\n    },\n    {\n      \"productId\": 2,\n      \"quantity\": 999999\n    },\n    {\n      \"productId\": 3,\n      \"quantity\": 999999\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-3-TC-13 · Status code is 409\", () => pm.response.to.have.status(409));"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_URL",
+      "value": "https://urban-grocers-es.up.railway.app/"
+    },
+    {
+      "key": "auth_token",
+      "value": ""
+    },
+    {
+      "key": "order_id",
+      "value": ""
+    },
+    {
+      "key": "delete_order_id",
+      "value": ""
+    }
+  ]
+}

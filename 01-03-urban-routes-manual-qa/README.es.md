@@ -64,7 +64,7 @@ El campo Número de tarjeta muestra el mismo patrón: acepta 5, 11 y 13 dígitos
 
 ## Lo que demuestra este proyecto
 
-- Cada caso fallido tiene su bug report, con pasos para reproducirlo, resultado esperado y obtenido, gravedad y evidencia.
+- Cada caso fallido tiene su bug report, con pasos para reproducirlo, resultado esperado y obtenido, gravedad o prioridad, y evidencia.
 - Reviso la red y la consola además de la pantalla.
 - Pruebo en más de un entorno para separar fallos de diseño de fallos de resolución o navegador.
 - Diseño los datos de prueba con técnicas formales en lugar de probar al azar.

@@ -1,0 +1,751 @@
+{
+  "info": {
+    "_postman_id": "57a15218-be80-5cbe-8365-2645c9ccdddb",
+    "name": "Urban Grocers · UG-2 Delivery cost and time",
+    "description": "Urban Grocers API · TripleTen QA Engineer, Sprint 4. Test names that start with a bug ID (for example UG-1-BUG-01) are expected to fail until that bug is fixed.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "UG-2-TC-01 · Valid request, deliveryTime 7",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": 7\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-TC-01 · Status code is 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"UG-2-TC-01 · isItPossibleToDeliver is true\", () => pm.expect(pm.response.json().isItPossibleToDeliver).to.eql(true));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-02 · Upper time limit +1 (22)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": 22\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-01 · Status code is 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"UG-2-BUG-01 · isItPossibleToDeliver is false\", () => pm.expect(pm.response.json().isItPossibleToDeliver).to.eql(false));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-03 · Upper time limit -1 (20)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": 20\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-TC-03 · Status code is 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"UG-2-TC-03 · isItPossibleToDeliver is true\", () => pm.expect(pm.response.json().isItPossibleToDeliver).to.eql(true));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-04 · Lower time limit -1 (6)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": 6\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-02 · Status code is 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"UG-2-BUG-02 · isItPossibleToDeliver is false\", () => pm.expect(pm.response.json().isItPossibleToDeliver).to.eql(false));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-05 · Lower time limit +1 (8)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": 8\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-TC-05 · Status code is 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"UG-2-TC-05 · isItPossibleToDeliver is true\", () => pm.expect(pm.response.json().isItPossibleToDeliver).to.eql(true));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-06 · Missing quantity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1\n    }\n  ],\n  \"deliveryTime\": 8\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-03 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-07 · Alphabetic productId",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": \"uno\",\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": 8\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-04 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-08 · Alphabetic quantity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": \"uno\"\n    }\n  ],\n  \"deliveryTime\": 8\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-05 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-09 · Special characters in productId",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": \"@!?\",\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": 8\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-06 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-10 · Special characters in quantity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": \"@!?\"\n    }\n  ],\n  \"deliveryTime\": 8\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-07 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-11 · Empty productId",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": \"\",\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": 8\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-08 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-12 · Empty quantity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": \"\"\n    }\n  ],\n  \"deliveryTime\": 8\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-09 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-13 · Impossible quantity (999999)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 999999\n    }\n  ],\n  \"deliveryTime\": 8\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-10 · Status code is 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"UG-2-BUG-10 · isItPossibleToDeliver is false\", () => pm.expect(pm.response.json().isItPossibleToDeliver).to.eql(false));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-14 · Invalid body structure",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    }\n  ],\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-TC-14 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-15 · Null quantity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": null\n    }\n  ],\n  \"deliveryTime\": 8\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-11 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-16 · Negative quantity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": -1\n    }\n  ],\n  \"deliveryTime\": 8\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-12 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-17 · Negative deliveryTime",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": -1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-13 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-18 · Out-of-range deliveryTime (1)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-14 · Status code is 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"UG-2-BUG-14 · isItPossibleToDeliver is false\", () => pm.expect(pm.response.json().isItPossibleToDeliver).to.eql(false));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-19 · Alphabetic deliveryTime",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": \"ocho\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-15 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-20 · Special characters in deliveryTime",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": \"@!?\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-BUG-16 · Status code is 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-21 · Mid-range time (14)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": 14\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-TC-21 · Status code is 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"UG-2-TC-21 · isItPossibleToDeliver is true\", () => pm.expect(pm.response.json().isItPossibleToDeliver).to.eql(true));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UG-2-TC-22 · Upper time limit (21)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_URL}}speedy/v1/calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"products\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    }\n  ],\n  \"deliveryTime\": 21\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"UG-2-TC-22 · Status code is 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"UG-2-TC-22 · isItPossibleToDeliver is true\", () => pm.expect(pm.response.json().isItPossibleToDeliver).to.eql(true));"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_URL",
+      "value": "https://urban-grocers-es.up.railway.app/"
+    }
+  ]
+}

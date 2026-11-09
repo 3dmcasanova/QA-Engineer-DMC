@@ -64,7 +64,7 @@ The Card number field shows the same pattern: it accepts 5, 11 and 13 digits, le
 
 ## What this project shows
 
-- Every failed test case has its bug report, with steps to reproduce, expected and actual results, severity and evidence.
+- Every failed test case has its bug report, with steps to reproduce, expected and actual results, severity or priority, and evidence.
 - I check the network and the console, not just the screen.
 - I test in more than one environment to separate design defects from resolution or browser defects.
 - I design test data with formal techniques instead of testing at random.

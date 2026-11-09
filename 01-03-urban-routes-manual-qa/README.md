@@ -23,7 +23,7 @@ I walked the main flow (address, route, Optimal, Flash and Personal modes, phone
 
 | ID | Bug | Severity |
 |---|---|---|
-| URB-01 | The Shine tariff returns `503` from `/api/v1/tariffs/price` when the route is calculated | Major |
+| URB-01 | The Shine tariff returns `503` from `/api/v1/tariffs/price` when the route is calculated | High |
 | URB-02 | The waiting screen does not close with the X button; the console shows `Uncaught Error: Unimplemented method at onClick` | Critical |
 
 ## Sprint 2 · UI against the design in two environments

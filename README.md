@@ -12,13 +12,13 @@ Sprints 1 to 3. Manual testing of **Urban Routes**, a ride-hailing web app: func
 |---|---|
 | Checks executed | **81** |
 | Checks failed | **26** |
-| Bugs reported | **21** · severity (sprint 1): 1 critical, 1 major · priority (sprints 2 and 3): 11 high, 8 low |
+| Bugs reported | **21** · severity (sprint 1): 1 critical, 1 high · priority (sprints 2 and 3): 11 high, 8 low |
 | Environments | Chrome 800×600 and Firefox 1920×1080 |
 
 **Highlighted bugs**
 
 - **URB-02 · Critical.** The vehicle waiting screen does not close with the X button, and the console logs `Uncaught Error: Unimplemented method at onClick`.
-- **URB-01 · Major.** When the route is calculated, the Shine tariff returns `503` from `/api/v1/tariffs/price`. The UI hides it; it only shows up in the Network tab.
+- **URB-01 · High.** When the route is calculated, the Shine tariff returns `503` from `/api/v1/tariffs/price`. The UI hides it; it only shows up in the Network tab.
 - **URTCBG-04 · High priority.** The card number field accepts letters, shows no error and enables the Add button.
 
 **Techniques:** step-by-step test cases, UI checklist, cross-browser testing, equivalence partitioning, boundary value analysis, and Network and Console review in Chrome DevTools.
@@ -33,14 +33,14 @@ Sprint 4. API testing of **Urban Grocers**, a grocery delivery API, in Postman: 
 |---|---|
 | Test cases executed | **46** |
 | Test cases failed | **26** |
-| Bugs reported | **26** (5 critical, 10 major, 10 minor, 1 trivial) |
+| Bugs reported | **26** (5 critical, 10 high, 10 medium, 1 low) |
 | Endpoints | `/api/v1/grocery-bundles/{id}/products`, `/speedy/v1/calculate`, `/api/v1/orders` |
 
 **Highlighted bugs**
 
 - **UG-1-BUG-08 · Critical.** Sending `"productId": "Twelve"` returns `500` (`invalid input syntax for type integer`), and every later request to that bundle fails, even valid ones.
-- **UG-2-BUG-01 · Major.** A delivery at 22:00, outside business hours, returns `isItPossibleToDeliver: true`. The status code is `200`; the bug is only in the body.
-- **UG-3-BUG-02 · Major.** Deleting an existing cart with a valid token returns `404` "Cart with id=2 not found".
+- **UG-2-BUG-01 · High.** A delivery at 22:00, outside business hours, returns `isItPossibleToDeliver: true`. The status code is `200`; the bug is only in the body.
+- **UG-3-BUG-02 · High.** Deleting an existing cart with a valid token returns `404` "Cart with id=2 not found".
 
 **Techniques:** equivalence classes, boundary value analysis, positive and negative scenarios, requests with and without authorization, response body validation, and automated checks with Postman tests and Newman.
 

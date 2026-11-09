@@ -11,7 +11,7 @@
 | Steps to reproduce | 1. …<br>2. …<br>3. … |
 | Expected result | What should happen (cite the requirement or design) |
 | Actual result | What actually happened |
-| Severity | Critical / Major / Minor / Trivial |
+| Severity | Critical / High / Medium / Low |
 | Priority | High / Medium / Low |
 | Frequency | How often it reproduces, e.g. 5/5 |
 | Evidence | Screenshot, video, console log or network request |

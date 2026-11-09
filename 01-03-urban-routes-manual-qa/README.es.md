@@ -23,8 +23,8 @@ Recorrí el flujo principal (dirección, ruta, modos Óptimo, Flash y Personal, 
 
 | ID | Bug | Gravedad |
 |---|---|---|
-| URB-01 | La tarifa Shine responde `503` en `/api/v1/tariffs/price` al calcular la ruta | Mayor |
-| URB-02 | La pantalla de espera no se cierra con el botón X; la consola muestra `Uncaught Error: Unimplemented method at onClick` | Crítico |
+| URB-01 | La tarifa Shine responde `503` en `/api/v1/tariffs/price` al calcular la ruta | Alta |
+| URB-02 | La pantalla de espera no se cierra con el botón X; la consola muestra `Uncaught Error: Unimplemented method at onClick` | Crítica |
 
 ## Sprint 2 · Interfaz contra el diseño en dos entornos
 

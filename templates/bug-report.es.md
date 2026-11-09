@@ -11,7 +11,7 @@
 | Pasos para reproducir | 1. …<br>2. …<br>3. … |
 | Resultado esperado | Qué debería pasar (cita el requisito o el diseño) |
 | Resultado obtenido | Qué pasó realmente |
-| Gravedad | Crítico / Mayor / Menor / Trivial |
+| Gravedad | Crítica / Alta / Media / Baja |
 | Prioridad | Alta / Media / Baja |
 | Frecuencia | Cuántas veces se reproduce de cada intento, por ejemplo 5/5 |
 | Evidencia | Captura, video, log de consola o petición de red |

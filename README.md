@@ -71,3 +71,5 @@ English: C1 Advanced ([EF SET 69/100](https://cert.efset.org/en/goUbJe)) · Span
 ## Contact
 
 [LinkedIn: David Morales](https://www.linkedin.com/in/3dmcasanova/)
+
+Email: david.morales.dmqa@gmail.com

@@ -71,3 +71,5 @@ Español (nativo) · Inglés: C1 avanzado ([EF SET 69/100](https://cert.efset.or
 ## Contacto
 
 [LinkedIn: David Morales](https://www.linkedin.com/in/3dmcasanova/)
+
+Correo: david.morales.dmqa@gmail.com

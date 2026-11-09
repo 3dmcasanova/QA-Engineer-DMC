@@ -25,12 +25,33 @@ Sprints 1 a 3. Pruebas manuales de **Urban Routes**, una aplicación web para pe
 
 ➡️ [Detalle del proyecto](01-03-urban-routes-manual-qa/README.es.md) · [Hoja en español con todos los casos y bug reports](https://docs.google.com/spreadsheets/d/1CdvvxNiFTvGbF5EXkdze9hxSYIwIRcebiG0vghuJWa0/edit)
 
+## Pruebas de API: Urban Grocers
+
+Sprint 4. Pruebas de la API de **Urban Grocers**, un servicio de entrega de supermercado, en Postman: paquetes de productos, costo y tiempo de entrega, y carrito de compras.
+
+| | |
+|---|---|
+| Casos ejecutados | **46** |
+| Casos fallidos | **26** |
+| Bugs documentados | **26** (5 críticos, 10 de severidad alta, 10 media y 1 baja) |
+| Endpoints | `/api/v1/grocery-bundles/{id}/products`, `/speedy/v1/calculate`, `/api/v1/orders` |
+
+**Bugs destacados**
+
+- **UG-1-BUG-08 · Crítica.** Enviar `"productId": "Twelve"` responde `500` (`invalid input syntax for type integer`) y todas las peticiones posteriores a ese paquete fallan, incluso las válidas.
+- **UG-2-BUG-01 · Alta.** Una entrega a las 22:00, fuera de horario, responde `isItPossibleToDeliver: true`. El código es `200`; el bug solo se ve en el body.
+- **UG-3-BUG-02 · Alta.** Borrar un carrito existente con un token válido responde `404` "Cart with id=2 not found".
+
+**Técnicas:** clases de equivalencia, análisis de valores límite, escenarios positivos y negativos, peticiones con y sin autorización, y validación del body de la respuesta.
+
+➡️ [Detalle del proyecto](04-api-testing/README.es.md) · [Hoja en español con todos los casos y bug reports](https://docs.google.com/spreadsheets/d/1Acz0HfCy_edp4G604z_HCaaMaRX2kvuu_1aAvDZB4Mw/edit)
+
 ## Contenido
 
 | Carpeta | Tema | Herramientas | Estado |
 |---|---|---|---|
 | [01-03-urban-routes-manual-qa](01-03-urban-routes-manual-qa/README.es.md) | QA manual web: casos de prueba, checklist de interfaz y formularios | Chrome DevTools, Google Sheets | ✅ Completo |
-| [04-api-testing](04-api-testing/README.es.md) | Pruebas de API | Postman | ⏳ En curso |
+| [04-api-testing](04-api-testing/README.es.md) | Pruebas de API: paquetes de productos, entregas y carrito | Postman, Swagger, Google Sheets | ✅ Completo |
 | [06-databases](06-databases/README.es.md) | Fundamentos de bases de datos | SQL, consola | ⏳ Pendiente |
 | [07-python-for-test-automation](07-python-for-test-automation/README.es.md) | Python para automatización de pruebas | Python, PyCharm | ⏳ Pendiente |
 | [08-test-automation-environment](08-test-automation-environment/README.es.md) | Entorno para automatización de pruebas | Pytest, Git | ⏳ Pendiente |

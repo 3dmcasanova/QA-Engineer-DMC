@@ -25,12 +25,33 @@ Sprints 1 to 3. Manual testing of **Urban Routes**, a ride-hailing web app: func
 
 ➡️ [Project details](01-03-urban-routes-manual-qa/README.md) · [Spreadsheet with every test case and bug report](https://docs.google.com/spreadsheets/d/1gI-mDF3BTTqg-HQ6AgfDhJoS6o1kyaI-cY1NLv57GcE/edit)
 
+## API testing: Urban Grocers
+
+Sprint 4. API testing of **Urban Grocers**, a grocery delivery API, in Postman: product bundles, delivery cost and time, and the shopping cart.
+
+| | |
+|---|---|
+| Test cases executed | **46** |
+| Test cases failed | **26** |
+| Bugs reported | **26** (5 critical, 10 high, 10 medium, 1 low) |
+| Endpoints | `/api/v1/grocery-bundles/{id}/products`, `/speedy/v1/calculate`, `/api/v1/orders` |
+
+**Highlighted bugs**
+
+- **UG-1-BUG-08 · Critical.** Sending `"productId": "Twelve"` returns `500` (`invalid input syntax for type integer`), and every later request to that bundle fails, even valid ones.
+- **UG-2-BUG-01 · High.** A delivery at 22:00, outside business hours, returns `isItPossibleToDeliver: true`. The status code is `200`; the bug is only in the body.
+- **UG-3-BUG-02 · High.** Deleting an existing cart with a valid token returns `404` "Cart with id=2 not found".
+
+**Techniques:** equivalence classes, boundary value analysis, positive and negative scenarios, requests with and without authorization, and response body validation.
+
+➡️ [Project details](04-api-testing/README.md) · [Spreadsheet with every test case and bug report](https://docs.google.com/spreadsheets/d/1AIelYIYvlfqz0BGgRB3tkbC1-ZJSi9gmikdd0O0Wuzo/edit)
+
 ## Contents
 
 | Folder | Topic | Tools | Status |
 |---|---|---|---|
 | [01-03-urban-routes-manual-qa](01-03-urban-routes-manual-qa/) | Manual web QA: test cases, UI checklist and forms | Chrome DevTools, Google Sheets | ✅ Done |
-| [04-api-testing](04-api-testing/) | API testing | Postman | ⏳ In progress |
+| [04-api-testing](04-api-testing/) | API testing: product bundles, delivery and shopping cart | Postman, Swagger, Google Sheets | ✅ Done |
 | [06-databases](06-databases/) | Database fundamentals | SQL, command line | ⏳ Pending |
 | [07-python-for-test-automation](07-python-for-test-automation/) | Python for test automation | Python, PyCharm | ⏳ Pending |
 | [08-test-automation-environment](08-test-automation-environment/) | Test automation environment | Pytest, Git | ⏳ Pending |

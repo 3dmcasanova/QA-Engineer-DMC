@@ -58,7 +58,6 @@ Sprint 4. Pruebas de la API de **Urban Grocers**, un servicio de entrega de supe
 
 ## Otros proyectos
 
-- **[Asset QA Validator](https://github.com/3dmcasanova/blender-asset-qa-validator):** extensión de Blender (Python) que revisa assets 3D contra especificaciones técnicas antes de exportarlos: nombres, presupuesto de triángulos, transformaciones aplicadas, UVs, materiales, n-gons, geometría suelta y no manifold, y texturas faltantes. Exporta los problemas a CSV para bug reports. 12 tests automáticos que corren en Blender sin interfaz.
 - **Suppah Soccah:** plan de pruebas de un juego 3v3 en Roblox que estoy desarrollando: regresión funcional, anti-cheat, telemetría y Art QA. En preparación.
 
 ## Herramientas

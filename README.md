@@ -58,7 +58,6 @@ Sprint 4. API testing of **Urban Grocers**, a grocery delivery API, in Postman: 
 
 ## Other projects
 
-- **[Asset QA Validator](https://github.com/3dmcasanova/blender-asset-qa-validator):** Blender extension (Python) that checks 3D assets against technical specs before export: naming, triangle budget, applied transforms, UVs, materials, n-gons, loose and non-manifold geometry, and missing textures. Exports issues to CSV for bug reports. 12 automated tests run headless in Blender.
 - **Suppah Soccah:** test plan for a 3v3 Roblox game I'm developing: functional regression, anti-cheat, telemetry and art QA. In progress.
 
 ## Tools

@@ -2,7 +2,7 @@
 
 # QA Engineer Portfolio · David Morales
 
-Software testing portfolio built during the **TripleTen QA Engineer** program: 10 sprints plus a mobile app testing module. I come from 3D art and game development, and I'm specializing in game QA.
+Software testing portfolio built during the **TripleTen QA Engineer** program: 10 sprints plus a mobile app testing module. I come from 3D art and game development ([3D portfolio](https://canva.link/78aj0a18c7kufdu)), and I'm specializing in game QA.
 
 ## Featured project: Urban Routes
 
@@ -71,5 +71,7 @@ English: C1 Advanced ([EF SET 69/100](https://cert.efset.org/en/goUbJe)) · Span
 ## Contact
 
 [LinkedIn: David Morales](https://www.linkedin.com/in/3dmcasanova/)
+
+[3D portfolio (Canva)](https://canva.link/78aj0a18c7kufdu)
 
 Email: david.morales.dmqa@gmail.com

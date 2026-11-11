@@ -2,7 +2,7 @@
 
 # Portafolio QA Engineer · David Morales
 
-Portafolio de pruebas de software del programa **QA Engineer de TripleTen**: 10 sprints y un módulo de pruebas de aplicaciones móviles. Vengo del arte 3D y el desarrollo de videojuegos, y me estoy especializando en QA de videojuegos.
+Portafolio de pruebas de software del programa **QA Engineer de TripleTen**: 10 sprints y un módulo de pruebas de aplicaciones móviles. Vengo del arte 3D y el desarrollo de videojuegos ([portafolio 3D](https://canva.link/78aj0a18c7kufdu)), y me estoy especializando en QA de videojuegos.
 
 ## Proyecto destacado: Urban Routes
 
@@ -71,5 +71,7 @@ Español (nativo) · Inglés: C1 avanzado ([EF SET 69/100](https://cert.efset.or
 ## Contacto
 
 [LinkedIn: David Morales](https://www.linkedin.com/in/3dmcasanova/)
+
+[Portafolio 3D (Canva)](https://canva.link/78aj0a18c7kufdu)
 
 Correo: david.morales.dmqa@gmail.com

@@ -54,7 +54,7 @@ Sprint 4. API testing of **Urban Grocers**, a grocery delivery API, in Postman: 
 | [04-api-testing](04-api-testing/) | API testing: product bundles, delivery and shopping cart | Postman, Newman, Swagger, Google Sheets | ✅ Done |
 | [templates](templates/) | Test case and bug report templates | Markdown | ✅ |
 
-**Coming next:** SQL, Python with Pytest, web automation with Selenium, mobile app testing and a final project. Each one will be added here when it's done.
+**Coming next:** SQL, Python with Pytest, web automation with Selenium, mobile app testing with Android Studio and a final project. Each one will be added here when it's done.
 
 ## Other projects
 
@@ -62,7 +62,7 @@ Sprint 4. API testing of **Urban Grocers**, a grocery delivery API, in Postman: 
 
 ## Tools
 
-Chrome DevTools · Postman · Jira · Google Sheets · SQL · Python · Pytest · Selenium · Git · Android Studio · Unreal Engine · Unity
+Chrome DevTools · Postman · Newman · Swagger · Jira · Google Sheets · Git · Unreal Engine · Unity
 
 ## Languages
 

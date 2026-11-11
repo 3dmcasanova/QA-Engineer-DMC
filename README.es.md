@@ -54,7 +54,7 @@ Sprint 4. Pruebas de la API de **Urban Grocers**, un servicio de entrega de supe
 | [04-api-testing](04-api-testing/README.es.md) | Pruebas de API: paquetes de productos, entregas y carrito | Postman, Newman, Swagger, Google Sheets | ✅ Completo |
 | [templates](templates/README.es.md) | Plantillas de caso de prueba y bug report | Markdown | ✅ |
 
-**Próximamente:** SQL, Python con Pytest, automatización web con Selenium, pruebas de aplicaciones móviles y un proyecto final. Cada uno se agregará aquí al completarlo.
+**Próximamente:** SQL, Python con Pytest, automatización web con Selenium, pruebas de aplicaciones móviles con Android Studio y un proyecto final. Cada uno se agregará aquí al completarlo.
 
 ## Otros proyectos
 
@@ -62,7 +62,7 @@ Sprint 4. Pruebas de la API de **Urban Grocers**, un servicio de entrega de supe
 
 ## Herramientas
 
-Chrome DevTools · Postman · Jira · Google Sheets · SQL · Python · Pytest · Selenium · Git · Android Studio · Unreal Engine · Unity
+Chrome DevTools · Postman · Newman · Swagger · Jira · Google Sheets · Git · Unreal Engine · Unity
 
 ## Idiomas
 
